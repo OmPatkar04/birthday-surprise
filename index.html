@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>A Little Birthday Surprise 💗</title>
+  <meta name="description" content="A special interactive birthday surprise made with love." />
+  <meta name="theme-color" content="#ffd5e5" />
+
+  <!-- Google Fonts for romantic and clean modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Ambient Canvas for Background Floating Hearts & Confetti -->
+  <canvas id="ambientCanvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Background Decorative Glowing Orbs -->
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-3" aria-hidden="true"></div>
+
+  <!-- Main Container -->
+  <main class="app-container" id="mainContent">
+
+    <!-- ==========================================
+         SCREEN 1: THE SECRET COUNTDOWN (Pre-Midnight)
+         ========================================== -->
+    <section id="screen-countdown" class="screen active" aria-labelledby="countdown-title">
+      <div class="card glass-card countdown-card">
+        <div class="card-badge">Secret Birthday Lock 🔒</div>
+
+        <div class="icon-pulse-wrapper">
+          <div class="pulsing-heart" aria-hidden="true">💗</div>
+          <div class="pulse-ring"></div>
+        </div>
+
+        <h1 id="countdown-title" class="title-romantic">Hey, Birthday Girl... 💗</h1>
+        <p class="subtitle-text">I have a little something waiting for you.</p>
+
+        <!-- Live Countdown Timer -->
+        <div class="countdown-timer" id="countdownTimer" role="timer" aria-live="polite">
+          <div class="time-box">
+            <span class="time-value" id="days">00</span>
+            <span class="time-label">Days</span>
+          </div>
+          <div class="time-divider">:</div>
+          <div class="time-box">
+            <span class="time-value" id="hours">00</span>
+            <span class="time-label">Hours</span>
+          </div>
+          <div class="time-divider">:</div>
+          <div class="time-box">
+            <span class="time-value" id="minutes">00</span>
+            <span class="time-label">Mins</span>
+          </div>
+          <div class="time-divider">:</div>
+          <div class="time-box">
+            <span class="time-value" id="seconds">00</span>
+            <span class="time-label">Secs</span>
+          </div>
+        </div>
+
+        <div class="unlock-note">
+          <span class="sparkle-icon">✨</span>
+          <p id="countdownMessage">Your little surprise unlocks at midnight. 🎁</p>
+          <span class="sparkle-icon">✨</span>
+        </div>
+
+        <div class="ist-timezone-tag">
+          <span>Target: 10 October 2026, 12:00 AM IST</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 2: THE AGE REVEAL (Birthday Unlocked)
+         ========================================== -->
+    <section id="screen-age-reveal" class="screen" aria-labelledby="age-reveal-title">
+      <div class="card glass-card age-card">
+        <div class="sparkle-badge">🎂 Midnight Has Arrived! ✨</div>
+
+        <h2 id="age-reveal-title" class="reveal-intro">Okayyy, it's finally your day! 🥹</h2>
+        <p class="reveal-subtext">Someone just turned...</p>
+
+        <div class="age-number-container">
+          <div class="age-number-glow" aria-hidden="true"></div>
+          <div class="age-number" id="ageNumberDisplay">25 💗</div>
+        </div>
+
+        <h3 class="birthday-tagline">Happy birthday, Bubu!</h3>
+        <p class="sweet-caption">Lots of Love💖</p>
+
+        <button type="button" class="btn btn-primary" id="btnToWish">
+          <span>Open Your Birthday Wish</span>
+          <span class="btn-icon">💖</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 3: THE MAIN BIRTHDAY WISH
+         ========================================== -->
+    <section id="screen-wish" class="screen" aria-labelledby="wish-title">
+      <div class="card glass-card wish-card">
+        <div class="card-badge badge-rose">For My Favourite Person 🌸</div>
+
+        <div class="cake-illustration" aria-hidden="true">
+          <div class="cake-layer cake-top">
+            <div class="candle">
+              <div class="flame"></div>
+            </div>
+            <div class="frosting"></div>
+          </div>
+          <div class="cake-layer cake-middle"></div>
+          <div class="cake-layer cake-bottom"></div>
+        </div>
+
+        <h2 id="wish-title" class="title-romantic font-heading">
+          Happy Birthday, my favourite person! 🎂💗
+        </h2>
+
+        <div class="wish-text-content">
+          <p>
+            Today is all about you — your smile, your happiness, your dreams, and all the little things that make you so
+            special.
+          </p>
+          <p>
+            I hope this new chapter of your life brings you more happiness than you can imagine, beautiful memories,
+            lots of laughter, and countless reasons to smile.
+          </p>
+          <p>
+            You deserve so many wonderful things, and I hope this year brings you closer to every single dream you
+            dreamt off!!
+          </p>
+          <p class="highlight-quote">
+            Today is your day, so smile a little extra, laugh a little louder, and remember that someone is really happy
+            that you exist ❤️
+          </p>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="btnToLetter">
+          <span>There's more for you...</span>
+          <span class="btn-icon">💌</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 4: THE PERSONAL LOVE LETTER
+         ========================================== -->
+    <section id="screen-letter" class="screen" aria-labelledby="letter-section-title">
+      <div class="card glass-card letter-wrapper-card">
+        <div class="card-badge badge-lavender">A Letter From The Heart 💌</div>
+        <h2 id="letter-section-title" class="sr-only">Personal Love Letter</h2>
+
+        <!-- Interactive Envelope -->
+        <div class="envelope-container" id="envelopeContainer">
+          <div class="envelope" id="interactiveEnvelope" tabindex="0" role="button" aria-label="Open your love letter">
+            <div class="envelope-flap" id="envelopeFlap"></div>
+            <div class="envelope-pocket"></div>
+            <div class="envelope-seal" id="envelopeSeal">💌</div>
+            <div class="envelope-paper-preview" id="envelopePaperPreview">
+              <span class="letter-stamp">❤️</span>
+            </div>
+          </div>
+          <p class="envelope-hint" id="envelopeHint">Tap the envelope to unseal it ✨</p>
+          <button type="button" class="btn btn-secondary" id="btnOpenEnvelope">
+            <span>Open your letter</span>
+            <span class="btn-icon">💌</span>
+          </button>
+        </div>
+
+        <!-- The Revealed Letter Sheet -->
+        <article class="letter-sheet" id="letterSheet" aria-hidden="true">
+          <div class="letter-header">
+            <span class="letter-postmark">10 • 10 • 2026</span>
+            <span class="letter-hearts-deco">💗 🌸 💗</span>
+          </div>
+
+          <div class="letter-body font-handwriting">
+            <p class="letter-salutation">To my favourite person, ❤️</p>
+
+            <p>Happy Birthday, love</p>
+
+            <p>
+              I know a message on a screen can never say everything I want to tell you, but I hope this little surprise
+              makes you smile.
+            </p>
+
+            <p>
+              I hope you always remember how special you are, how much happiness you deserve, and how important it is to
+              keep being the person you are.
+            </p>
+
+            <p>
+              I wish you a year full of beautiful moments, peaceful days, silly laughs, fulfilled dreams, random things,
+              more fun and memories
+              that make you smile whenever you think about them.
+            </p>
+
+            <p>
+              Thank you for being you. I hope today makes you feel as special as you truly are.
+            </p>
+
+            <p>Happy Birthday once again, my girl 💗</p>
+
+            <div class="letter-closing">
+              <p>With all my love,</p>
+              <p class="letter-signature">Your favourite person ❤️</p>
+            </div>
+          </div>
+
+          <div class="letter-action-footer">
+            <button type="button" class="btn btn-primary" id="btnToGift">
+              <span>Wait... one last little surprise</span>
+              <span class="btn-icon">🎁</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 5: THE SECRET GIFT BOX
+         ========================================== -->
+    <section id="screen-gift" class="screen" aria-labelledby="gift-title">
+      <div class="card glass-card gift-wrapper-card">
+        <div class="card-badge badge-rose">A Little Box Of Reasons 🎁</div>
+
+        <h2 id="gift-title" class="title-romantic">
+          Psst... your birthday surprise isn't over yet.
+        </h2>
+        <p class="subtitle-text" id="giftInstructions">
+          There are 3 little messages tucked inside this box for you...
+        </p>
+
+        <!-- CSS 3D-Look Gift Box -->
+        <div class="gift-box-stage" id="giftBoxStage">
+          <div class="gift-box" id="interactiveGiftBox" tabindex="0" role="button"
+            aria-label="Open your birthday gift box">
+            <div class="gift-lid" id="giftLid">
+              <div class="gift-bow">
+                <span class="bow-loop left"></span>
+                <span class="bow-loop right"></span>
+                <span class="bow-knot"></span>
+              </div>
+              <div class="ribbon vertical"></div>
+            </div>
+            <div class="gift-base">
+              <div class="ribbon vertical"></div>
+              <div class="ribbon horizontal"></div>
+              <div class="gift-glow-particles"></div>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary" id="btnOpenGift">
+            <span>Open your little gift</span>
+            <span class="btn-icon">💝</span>
+          </button>
+        </div>
+
+        <!-- Revealed Reasons Container -->
+        <div class="reasons-container" id="reasonsContainer" aria-live="polite">
+
+          <!-- Card 1 -->
+          <div class="reason-card" id="reasonCard1">
+            <div class="reason-chip">REASON 1 — A LITTLE REASON ❤️</div>
+            <p class="reason-text">
+              "Because even an ordinary day feels special when I get to talk to you, see you and be with you."
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="reason-card hidden-reason" id="reasonCard2">
+            <div class="reason-chip">REASON 2 — A LITTLE WISH ✨</div>
+            <p class="reason-text">
+              "I hope this new year of your life gives you a hundred reasons to smile."
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="reason-card hidden-reason" id="reasonCard3">
+            <div class="reason-chip">REASON 3 — ONE LAST THING 🥹</div>
+            <p class="reason-text">
+              "And if I get to be one of those reasons, that's a bonus for me. Hehe ❤️"
+            </p>
+          </div>
+
+          <!-- Interactive Next Card / Final Buttons -->
+          <div class="gift-controls" id="giftControls" style="display: none;">
+            <button type="button" class="btn btn-secondary" id="btnNextReason">
+              <span>Read Next Little Note (1/3)</span>
+              <span class="btn-icon">✨</span>
+            </button>
+
+            <button type="button" class="btn btn-primary" id="btnToFinal" style="display: none;">
+              <span>One last thing...</span>
+              <span class="btn-icon">🌙</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 6: THE FINAL DREAMY SCREEN
+         ========================================== -->
+    <section id="screen-final" class="screen" aria-labelledby="final-title">
+      <div class="card glass-card final-card">
+        <div class="moon-stars-cluster" aria-hidden="true">
+          <span class="crescent-moon">🌙</span>
+          <span class="floating-star star-1">✨</span>
+          <span class="floating-star star-2">⭐</span>
+          <span class="floating-star star-3">✨</span>
+        </div>
+
+        <h2 id="final-title" class="title-romantic font-heading">
+          Happy Birthday, my favourite person 💗
+        </h2>
+
+        <div class="final-message-box">
+          <p class="final-line">Here's to another year of you being you.</p>
+          <p class="final-line">Keep smiling, keep dreaming, and never forget how special you are.</p>
+          <p class="final-line highlight-glow">I'm really glad you're my baby, my LOVE, my everything🧿</p>
+          <p class="final-love-callout">I love you ❤️</p>
+        </div>
+
+        <div class="crafted-footer">
+          <div class="beating-heart-small">💖</div>
+          <p class="footer-note">Made with love, just for you 💌</p>
+        </div>
+
+        <!-- Replay / Review Journey Button -->
+        <div class="replay-bar">
+          <button type="button" class="btn-text-subtle" id="btnReplay">
+            🔄 Revisit from the beginning
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Accessibility Live Region for Screen Readers -->
+  <div id="srStatus" class="sr-only" role="status" aria-live="polite"></div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>
